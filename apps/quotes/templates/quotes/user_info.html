@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'quotes/css/style.css' %}" media="screen" title="no title"  charset="utf-8">
+    <title>My Quotes</title>
+</head>
+<body>
+    <div class='header'>
+        <a class='inline' href="/quotes">Dashboard | </a>
+        <a class='inline' href="/logout">Logout</a>
+    </div>
+    <div>
+        <h2>Posts by {{user.name}}</h2>
+        <p>Count: {{user.quotes.all.count}}</p>
+    </div>
+    <div>
+        {% for quote in my_quotes %}
+            <p><span class='red'>{{ quote.quoted }}</span>: {{quote.quote}}</p>
+        {% endfor %}
+    </div>
+</body>
+</html>
